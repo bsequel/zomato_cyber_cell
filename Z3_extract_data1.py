@@ -5,6 +5,16 @@ import base64
 from Z3_1_schema_cyber import schema_cyber
 from datetime import datetime
 
+
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
+
+Pry_Token = os.getenv('Pry_Token')
+
+
 def extract_data(file):
     sample = {
         "file": file,
@@ -58,7 +68,7 @@ def extract_data(file):
         url = "https://sequel-invoice-api-1055298495325.asia-south1.run.app/api/invoice"
         headers1 = {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer f5293e77-28c6-4c9d-9f33-d481b6630b5e'
+            'Authorization': f'Bearer {Pry_Token}'
         }
         response = requests.post(url, data=json_data, headers=headers1)
 
