@@ -13,6 +13,8 @@ env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
 Pry_Token = os.getenv('Pry_Token')
+PRY_KEY = os.getenv('PRY_KEY')
+
 
 
 def extract_data(file):
@@ -54,7 +56,7 @@ def extract_data(file):
         },
         "schema": schema_cyber,
         "version": "3.0.0",
-        "key": "0f0e453f-58fc-4c34-8ef0-901340cf46ba"
+        "key": f"{PRY_KEY}"
     }
 
     ############# To make a json file for payload ############
